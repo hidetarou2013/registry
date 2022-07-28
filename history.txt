@@ -1,0 +1,394 @@
+    1  java -version
+    2  apt install openjdk-11-jre-headless
+    3  sudo apt install openjdk-11-jre-headless
+    4  pwd
+    5  ls -la
+    6  mkdir work
+    7  mkdir work/github
+    8  mkdir work/github/hidetarou2013
+    9  mkdir work/gitbucket
+   10  mkdir work/gitbucket/hide1227
+   11  ls -l /vagrant/awscliv2/
+   12  cp -r /vagrant/awscliv2 work/
+   13  ls -l work/
+   14  cd work/awscliv2/
+   15  ll
+   16  sudo ./aws/install 
+   17  /usr/local/bin/aws --version
+   18  sudo /usr/local/bin/aws --version
+   19  sudo /usr/local/bin/aws configure
+   20  export AWS_REGION=ap-northeast-1
+   21  export AWS_REGISTRY_ID=098456798948
+   22  sudo /usr/local/bin/aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${AWS_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+   23  docker images
+   24  docker pull 098456798948.dkr.ecr.ap-northeast-1.amazonaws.com/ecs_tomcat
+   25  docker pull 098456798948.dkr.ecr.ap-northeast-1.amazonaws.com/ecs_postgres
+   26  docker images
+   27  cat /etc/lsb-release
+   28  docker -v
+   29  docker-compose -v
+   30  sudo apt install docker-compose
+   31  docker-compose -v
+   32  cd ../
+   33  ll
+   34  cd gitbucket/hide1227/
+   35  ll
+   36  git clone http://192.168.1.40:28080/git/hide1227/codes_for_lessons.git
+   37  ll
+   38  cd codes_for_lessons/
+   39  git branch
+   40  ll
+   41  cd step13/
+   42  ll
+   43  cd url-mapping/
+   44  l
+   45  ls -la
+   46  kubectl -v
+   47  kubectl -version
+   48  kubectl --v
+   49  kubectl version
+   50  cat /etc/lsb-release
+   51  kubectl version
+   52  exit
+   53  cd work/gitbucket/hide1227/codes_for_lessons/step13/url-mapping/
+   54  ll
+   55  kubectl apply -f application1.yml
+   56  kubectl apply -f application2.yml
+   57  kubectl apply -f application3.yml
+   58  vi application4.yml
+   59  docker images
+   60  vi application4.yml
+   61  kubectl apply -f application4.yml
+   62  cat -n application4.yml
+   63  vi application4.yml
+   64  vi application3.yml
+   65  kubectl apply -f application4.yml
+   66  git status
+   67  git branch
+   68  git add -A
+   69  git commit -m "refs #1 bug fixed yaml application.yml"
+   70  git config --global --user.email "hide1227work@gmail.com"
+   71  git config --global --user.email 'hide1227work@gmail.com'
+   72  git config --global --user.email='hide1227work@gmail.com'
+   73  git config --global user.email "hide1227work@gmail.com"
+   74  git config --global user.name "hide1227"
+   75  git commit -m "refs #1 bug fixed yaml application.yml"
+   76  git branch
+   77  git push origin test2-step13
+   78  ll
+   79  kubectl create secret tls tls-certificate --key nginx-selfsigned.key --cert nginx-selfsigned.crt
+   80  secret/tls-certificate created
+   81  kubectl apply -f ingress-tls.yml 
+   82  cd nginx-lb2/
+   83  ll
+   84  pwd
+   85  docker build -t my_nginx_img .
+   86  docker run --name my_nginx_2 -d -p 80:80 my_nginx_img
+   87  docker ps | grep my_nginx_2
+   88  kubectl get pod -o wide
+   89  kubectl describe pod ecs-tomcat-deployment-54f9586fc9-gbzjn
+   90  aws configure
+   91  ls -la ~/.aws
+   92  pwd
+   93  sudo chown vagrant.vagrant ~/.aws/config 
+   94  sudo chown vagrant.vagrant ~/.aws/credentials 
+   95  ls -la ~/.aws
+   96  history | grep aws
+   97  echo $path
+   98  sudo echo $path
+   99  echo $PATH
+  100  ls -la /usr/local/bin/aws
+  101  ls -la /usr/local/bin
+  102  /usr/local/bin/aws --version
+  103  aws --version
+  104  sudo aws --version
+  105  cd ../
+  106  ll
+  107  kubectl delete application4.yml 
+  108  kubectl delete -f application4.yml 
+  109  kubectl apply -f application4.yml 
+  110  kubectl get pod -o wide
+  111  kubectl describe pod ecs-tomcat-deployment-54f9586fc9-rtqq6
+  112  sudo /usr/local/bin/aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${AWS_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+  113  export AWS_REGION=ap-northeast-1
+  114  export AWS_REGISTRY_ID=098456798948
+  115  sudo /usr/local/bin/aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${AWS_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+  116  kubectl delete -f application4.yml 
+  117  kubectl apply -f application4.yml 
+  118  kubectl get pod -o wide
+  119  sudo aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${AWS_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+  120  kubectl delete -f application4.yml 
+  121  docker images
+  122  docker tag 098456798948.dkr.ecr.ap-northeast-1.amazonaws.com/ecs_tomcat localhost/ecs_tomcat
+  123  docker images
+  124  ll
+  125  vi application4.yml 
+  126  kubectl apply -f application4.yml 
+  127  kubectl get pod -o wide
+  128  kubectl describe pod ecs-tomcat-deployment-86747bbb96-lrs25
+  129  kubectl delete -f application4.yml 
+  130  vi application4.yml 
+  131  docker images
+  132  docker tag localhost/ecs_tomcat ecs_tomcat
+  133  docker images
+  134  kubectl apply -f application4.yml 
+  135  kubectl get pod -o wide
+  136  kubectl describe pod ecs-tomcat-deployment-79655cd694-r2xxf
+  137  kubectl delete -f application4.yml 
+  138  docker login
+  139  docker images
+  140  docker tag ecs_tomcat hidetarou2013/ecs_tomcat
+  141  docker images
+  142  docker push hidetarou2013/ecs_tomcat
+  143  docker images
+  144  vi application4.yml 
+  145  kubectl apply -f application4.yml 
+  146  kubectl get pod -o wide
+  147  kubectl delete -f ingress-tls.yml 
+  148  kubectl apply -f ingress-tls.yml 
+  149  docker ps | grep my_nginx
+  150  ll
+  151  cat nginx-lb2/default.conf 
+  152  cat application4.yml | grep 31441
+  153  kubectl get pod -o wide
+  154  kubectl logs ecs-tomcat-deployment-66556b76bd-7xcn5
+  155  ll
+  156  cat application4.yml 
+  157  ll
+  158  vi postgres.yml
+  159  docker images
+  160  docker pull hidetarou2013/ecs_postgres
+  161  docker images
+  162  ll
+  163  kubectl apply -f postgres.yml
+  164  kubectl get pod -o wide
+  165  kubectl exec --stdin --tty ecs-postgres-sfs-0 -- /bin/bash
+  166  kubectl delete -f application4.yml 
+  167  kubectl apply -f application4.yml 
+  168  kubectl get pod -o wide
+  169  kubectl logs ecs-tomcat-deployment-66556b76bd-fzfl8
+  170  kubectl logs ecs-tomcat-deployment-66556b76bd-fzfl8 -f
+  171  kubectl get pod -o wide
+  172  kubectl logs ecs-postgres-sfs-0
+  173  kubectl exec --stdin --tty ecs-postgres-sfs-0 -- sh
+  174  kubectl get pods -l app=postgres
+  175  kubectl get pod -o wide
+  176  kubectl get pods -l app=ecs-postgres-sfs-0
+  177  cat postgres.yml 
+  178  kubectl get pods -l app=ecs-postgres-sfs
+  179  for i in 0 1; do kubectl exec "ecs-postgres-sfs-$i" -- sh -c 'hostname'; done
+  180  kubectl exec "ecs-postgres-sfs-0" -- sh -c 'hostname'
+  181  kubectl exec "ecs-postgres-sfs-0" -- sh -c 'echo hello!'
+  182  kubectl exec "ecs-postgres-sfs-0" -- sh -c 'psql -U postgres'
+  183  kubectl describe pod ecs-postgres-sfs-0
+  184  kubectl get pod -o wide
+  185  kubectl logs ecs-tomcat-deployment-66556b76bd-fzfl8
+  186  kubectl delete -f application4.yml 
+  187  cat application4.yml 
+  188  docker pull hidetarou2013/ecs_tomcat
+  189  kubectl apply -f application4.yml 
+  190  kubectl get pod -o wide
+  191  kubectl logs -f ecs-tomcat-deployment-66556b76bd-sh9w2
+  192  ll
+  193  kubectl delete -f postgres.yml 
+  194  kubectl get pod -o wide
+  195  cat application4.yml 
+  196  kubectl delete -f application4.yml 
+  197  vi application4.yml 
+  198  kubectl apply -f application4.yml 
+  199  kubectl get pod -o wide
+  200  git branch
+  201  git status
+  202  git add -A
+  203  git commit -m "mod application4.yml add postgres.yml"
+  204  git push origin test2-step13
+  205  ll
+  206  mkdir postgres-container
+  207  cd postgres-container/
+  208  ll
+  209  vi Dockerfile
+  210  cat ../nginx-lb2/Dockerfile 
+  211  vi Dockerfile 
+  212  mkdir init
+  213  vi init/ddl_preteammumin.sql
+  214  cat Dockerfile 
+  215  vi init/ddl_preteammumin.sql
+  216  ll
+  217  docker build -t tmp_postgres14 .
+  218  docker tag tmp_postgres14 hidetarou2013/tmp_postgres14
+  219  docker push hidetarou2013/tmp_postgres14
+  220  docker run --name postgres -it -d hidetarou2013/tmp_postgres14
+  221  docker ps | grep postgres
+  222  docker stop postgres
+  223  docker rm postgres
+  224  docker run --name tmp_postgres -d hidetarou2013/tmp_postgres14
+  225  docker ps | grep tmp_postgres
+  226  vi Dockerfile 
+  227  cp Dockerfile Dockerfile-org
+  228  vi Dockerfile 
+  229  docker build -t tmp_postgres14 .
+  230  docker tag tmp_postgres14 hidetarou2013/tmp_postgres14
+  231  docker push hidetarou2013/tmp_postgres14
+  232  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -v $(pwd)/init:/docker-entrypoint-initdb.d -d hidetarou2013/tmp_postgres14
+  233  docker ps | grep postgres
+  234  docker stop postgres
+  235  docker rm postgres
+  236  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -v $(pwd)/init:/docker-entrypoint-initdb.d -d postgres:14
+  237  docker ps | grep postgres
+  238  docker rm postgres
+  239  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -v ./init:/docker-entrypoint-initdb.d -d hidetarou2013/tmp_postgres14
+  240  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -v init:/docker-entrypoint-initdb.d -d hidetarou2013/tmp_postgres14
+  241  docker ps | grep postgres
+  242  docker rm postgres
+  243  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -v init:/docker-entrypoint-initdb.d -d postgres:14
+  244  docker ps | grep postgres
+  245  docker stop postgres
+  246  docker rm postgres
+  247  cat Dockerfile
+  248  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -e TZ=Asia/Tokyo -e LANG=ja_JP.utf8 -v init:/docker-entrypoint-initdb.d -d postgres:14
+  249  docker ps | grep postgres
+  250  docker rm postgres
+  251  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -e LANG=ja_JP.utf8 -v init:/docker-entrypoint-initdb.d -d postgres:14
+  252  docker ps | grep postgres
+  253  docker rm postgres
+  254  docker run --name postgres -it -p 5432:5432 -e POSTGRES_PASSWORD=himitu -e POSTGRES_USER=student -v init:/docker-entrypoint-initdb.d -d postgres:14
+  255  docker ps | grep postgres
+  256  kubectl get pod -o wide
+  257  history | grep logs
+  258  kubectl logs -f ecs-tomcat-deployment
+  259  kubectl logs -f ecs-tomcat-deployment-66556b76bd-b458j
+  260  kubectl get pod -o wide
+  261  exit
+  262  pwd
+  263  ll
+  264  cd work/gitbucket/hide1227/codes_for_lessons/step13/url-mapping/
+  265  kubectl get pod -o wide
+  266  kubectl logs -f ecs-tomcat-deployment-66556b76bd-b458j 
+  267  kubectl delete -f application4.yml 
+  268  kubectl apply -f application4.yml 
+  269  kubectl get pod -o wide
+  270  kubectl logs -f ecs-tomcat-deployment-66556b76bd-2wjdc
+  271  exit
+  272  sudo vi /etc/hosts
+  273  exit
+  274  sudo vi /etc/hosts
+  275  cd work/gitbucket/hide1227/codes_for_lessons/step13/url-mapping/
+  276  ll
+  277  kubectl delete -f application4.yml 
+  278  kubectl apply -f application4.yml 
+  279  docker ps | grep postgres
+  280  kubectl get pod -o wide
+  281  docker exec -it postgres bash
+  282  kubectl get pod -o wide
+  283  ll
+  284  kubectl delete -f ingress-tls.yml 
+  285  kubectl delete -f application1.yml 
+  286  kubectl delete -f application2.yml 
+  287  kubectl delete -f application3.yml 
+  288  kubectl delete -f application4.yml 
+  289  docker ps | grep my_nginx
+  290  docker stop my_nginx_2
+  291  docker stop postgres
+  292  kubectl get pod -o wide
+  293  exit
+  294  sudo apt install -y docker-compose
+  295  sudo apt-get install docker-compose-plugin
+  296  deocker-compose -v
+  297  docker-compose -v
+  298  apt-cache madison docker-compose-plugin
+  299  which docker-compose
+  300  sudo apt-get install docker-compose-plugin=2.6.0~ubuntu-bionic
+  301  which docker-compose
+  302  docker-compose -v
+  303  sudo su
+  304  docker-compose -v
+  305  ll
+  306  cd work/github/hidetarou2013/
+  307  ll
+  308  git clone git@github.com:hidetarou2013/registry.git
+  309  ll
+  310  ls -l ~/.ssh
+  311  ssh-keygen -t rsa -C "vagrant@master-3"
+  312  ls -l ~/.ssh
+  313  ls -l ~/.ssh/id_rsa.pub 
+  314  cat ~/.ssh/id_rsa.pub 
+  315  git clone git@github.com:hidetarou2013/registry.git
+  316  ll
+  317  cd registry/
+  318  ll
+  319  cat docker-compose.yml 
+  320  ll
+  321  ls -l auth/
+  322  ip add | grep 192
+  323  ll
+  324  openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout domain.key -out domain.crt
+  325  ll
+  326  mkdir tmp
+  327  ll
+  328  docker run --rm --entrypoint htpasswd registry:2 -Bbn dockman qwerty > tmp/nginx.htpasswd
+  329  docker run --entrypoint htpasswd registry:2 -Bbn dockman qwerty > tmp/htpasswd
+  330  ll
+  331  ls -la auth/
+  332  git status
+  333  git branch
+  334  git checkout -b maekawa
+  335  git branch
+  336  ll
+  337  cp domain.crt auth/
+  338  cp domain.key auth/
+  339  ll
+  340  cat docker-compose.yml 
+  341  vi docker-compose.yml 
+  342  ll
+  343  ls -la data/
+  344  ls -la auth/
+  345  cat auth/nginx.conf 
+  346  cat auth/nginx.conf | grep private3.registry.local
+  347  cat auth/nginx.conf | grep private.registry.local
+  348  cat -n auth/nginx.conf | grep private.registry.local
+  349  vi auth/nginx.conf 
+  350  git status
+  351  git add -A
+  352  git commit -m "refs #1 for private3.registry.local"
+  353  git status
+  354  git push origin masekawa
+  355  git push origin maekawa
+  356  ll
+  357  docker ps
+  358  ll
+  359  docker-compose up -d
+  360  docker-compose ps
+  361  ip add | grep 192
+  362  sudo cat /etc/hosts
+  363  sudo vi /etc/hosts
+  364  docker login -u=dockman private3.registry.local:5043
+  365  sudo find / -name daemon.json
+  366  sudo find / -name cafile.pem
+  367  ll
+  368  pwd
+  369  ls -la
+  370  REGISTRY=private3.registry.local:5043
+  371  sudo mkdir -p /etc/docker/certs.d/${REGISTRY}
+  372  sudo cp domain.crt /etc/docker/certs.d/${REGISTRY}/ca.crt
+  373  sudo systemctl restart docker
+  374  docker login -u=dockman private3.registry.local:5043
+  375  docker login -u=dockman https://private3.registry.local:5043/v2/
+  376  docker ps
+  377  docker-compose ps
+  378  docker-compose up -d
+  379  docker-compose ps
+  380  docker login -u=dockman https://private3.registry.local:5043/v2/
+  381  docker images
+  382  docker tag ecs_tomcat private3.registry.local:5043/ecs_tomcat
+  383  docker push private3.registry.local:5043/ecs_tomcat
+  384  docker login
+  385  docker pull hidetarou2013/ecs_tomcat
+  386  docker images
+  387  docker pull hidetarou2013/ecs_postgres
+  388  docker tag hidetarou2013/ecs_postgres private3.registry.local:5043/ecs_postgres
+  389  docker push private3.registry.local:5043/ecs_postgres
+  390  which htpasswd 
+  391  java -version
+  392  ll
+  393  git branch
+  394  history > history.txt
