@@ -30,7 +30,7 @@ services:
     #links:
     #  - registry:registry
     environment:
-      ENV_DOCKER_REGISTRY_HOST: private.registry.local
+      ENV_DOCKER_REGISTRY_HOST: private3.registry.local
       ENV_DOCKER_REGISTRY_PORT: 5043
       ENV_DOCKER_REGISTRY_USE_SSL: 1
     networks:
